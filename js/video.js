@@ -32,14 +32,14 @@ document.querySelector("#pause").addEventListener("click", function() {
 
 // Slow down button event listener
 document.querySelector("#slower").addEventListener("click", function() {
-  video.playbackRate *= 0.5;
+  video.playbackRate *= 0.9;
   console.log("New speed is " + video.playbackRate);
 });
 
 
 // Speed up button event listener
 document.querySelector("#faster").addEventListener("click", function() {
-	video.playbackRate /= 0.5;
+	video.playbackRate /= 0.9;
 	console.log("New speed is " + video.playbackRate);
   });
 
