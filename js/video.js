@@ -68,13 +68,28 @@ document.querySelector("#mute").addEventListener("click", function() {
   });
 
 
-// Volume slider event listener
-document.querySelector("#slider").addEventListener("input", (event) => {
+// Event listener for the play button
+document.querySelector("#play").addEventListener("click", function() {
+	video.play();
+	console.log("Play Video");
+	// Update the volume display when the video starts playing
+	updateVolumeDisplay(video.volume);
+  });
+  
+  // Event listener for the volume slider
+  document.querySelector("#slider").addEventListener("input", function(event) {
 	let newVolume = event.target.value / 100;
 	video.volume = newVolume;
-	console.log("Volume is at " + newVolume * 100 + "%");
-	document.querySelector("#volume").textContent = "" + Math.round(newVolume * 100) + "%";
+	updateVolumeDisplay(newVolume);
   });
+  
+  // Function to update the volume display
+  function updateVolumeDisplay(volume) {
+	let volumePercentage = Math.round(volume * 100);
+	document.querySelector("#volume").textContent = "" + volumePercentage + "%";
+	console.log("Volume is at " + volumePercentage + "%");
+  }
+
 
 
 document.querySelector("#vintage").addEventListener("click", function() {
